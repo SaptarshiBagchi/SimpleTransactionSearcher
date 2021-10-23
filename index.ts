@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json())
 
-app.use('/user', userRoutes)
+app.use('/transaction', userRoutes)
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
     res.send('This is working')

@@ -1,14 +1,17 @@
+import transactionModel, { ITransaction } from "../models/transaction.model"
+
 export class UserRepository {
-    async me(status: boolean): Promise<any> {
-        return new Promise((resolve, reject) => {
-            setTimeout(function () {
-                if (status)
-                    resolve({
-                        information: 'Saptarshi Bagchi'
-                    })
-                reject(new Error('Some error happened'))
-            }, 1500)
-        })
+    async create(data: ITransaction): Promise<ITransaction> {
+        return await transactionModel.create(data)
+    }
+
+    async all(): Promise<ITransaction[]> {
+        return await transactionModel.find()
+    }
+
+    async findText(text: string): Promise<ITransaction[]> {
+        console.log(text)
+        return await transactionModel.find({ $text: { $search: text } })
     }
 }
 export default new UserRepository()

@@ -1,7 +1,7 @@
 import express from 'express'
-import userController from '../src/controllers/user.controller';
+import UserController from '../src/controllers/user.controller';
 const router = express.Router();
 
-router.get('/me', userController.me)
-
+router.route('/').get(UserController.all).post(UserController.create)
+router.route('/find').get(UserController.findText)
 export default router;
