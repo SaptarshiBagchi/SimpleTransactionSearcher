@@ -1,10 +1,9 @@
-import { NextFunction, Request, Response } from "express";
 import Controller from "../../baseInterfaces/controller";
-import UserService from "../services/user.service";
+import TransactionService from "../services/transaction.service";
 
 export class UserController extends Controller {
     constructor() {
-        super(UserService)
+        super(TransactionService)
     }
 
 }

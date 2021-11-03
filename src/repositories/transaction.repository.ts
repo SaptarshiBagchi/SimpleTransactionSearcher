@@ -1,6 +1,6 @@
 import transactionModel, { ITransaction } from "../models/transaction.model"
 
-export class UserRepository {
+export class TransactionRepository {
     async create(data: ITransaction): Promise<ITransaction> {
         return await transactionModel.create(data)
     }
@@ -14,4 +14,4 @@ export class UserRepository {
         return await transactionModel.find({ $text: { $search: text } })
     }
 }
-export default new UserRepository()
+export default new TransactionRepository()

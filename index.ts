@@ -3,6 +3,7 @@ import errorHandler from './lib/errorHandler';
 import notFoundHandler from './lib/notfound';
 import userRoutes from './routes/user.routes'
 import connectDB from './lib/db.conn';
+import './src/models/transaction.model'
 
 connectDB();
 
