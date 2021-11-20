@@ -8,18 +8,18 @@ export default class Controller {
         this.service = service;
     }
 
-    all = catchAsync(async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>>> => {
+    all = catchAsync(async (_1: Request, res: Response, _2: NextFunction): Promise<Response<unknown, Record<string, unknown>>> => {
         const response = await this.service.all();
         return res.status(200).json(response);
     })
 
-    create = catchAsync(async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>>> => {
+    create = catchAsync(async (req: Request, res: Response, _: NextFunction): Promise<Response<unknown, Record<string, unknown>>> => {
         const response = await this.service.create(req.body);
         return res.status(200).json(response);
 
     })
 
-    findText = catchAsync(async (req: Request, res: Response, next: NextFunction): Promise<Response<any, Record<string, any>>> => {
+    findText = catchAsync(async (req: Request, res: Response, _: NextFunction): Promise<Response<unknown, Record<string, unknown>>> => {
 
         const searchText = req.query.text
         if (typeof searchText === 'string') {
