@@ -3,9 +3,9 @@ import { Request, Response, NextFunction } from 'express'
 import { catchAsync } from "../lib/catchAsync";
 import { ResponseType } from "../lib/types";
 
-export default class Controller {
-    service: IService;
-    constructor(service: IService) {
+export default class Controller<T> {
+    service: IService<T>;
+    constructor(service: IService<T>) {
         this.service = service;
     }
 
