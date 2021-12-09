@@ -1,29 +1,25 @@
-import { FilterQuery, Query, Document, Types } from "mongoose"
-import transactionModel, { ITransaction } from "../models/transaction.model"
+import transactionModel, { ITransactionDocument } from "../models/transaction.model"
 
 export class TransactionRepository {
-    async create(data: ITransaction): Promise<ITransaction> {
-        return await transactionModel.create(data)
+    async create(data: ITransactionDocument): Promise<ITransactionDocument> {
+        // console.log(typeof transactionModel.set)
+        // const document: ITransactionDocument = (await transactionModel.find().limit(2))[1]
+        // const amount = document.amountINString()
+        // console.log(amount)
+        // return document
+        const todo = await transactionModel.set(data)
+        return todo
     }
 
-    async all2(): Promise<ITransaction[]> {
-        return await transactionModel.find()
+    async all(): Promise<ITransactionDocument[]> {
+        return await transactionModel.find() as ITransactionDocument[]
     }
 
-    async findText(text: string): Promise<ITransaction[]> {
+    async findText(text: string): Promise<ITransactionDocument[]> {
         console.log(text)
         return await transactionModel.find({ $text: { $search: text } })
 
 
-    }
-
-    async all(): Promise<ITransaction[]> {
-        const query: Query<(Document<any, any, ITransaction> & ITransaction & {
-            _id: Types.ObjectId;
-        })[], Document<any, any, ITransaction> & ITransaction & {
-            _id: Types.ObjectId;
-        }, {}, ITransaction> = transactionModel.find()
-        return await query.exec()
     }
 }
 export default new TransactionRepository()
