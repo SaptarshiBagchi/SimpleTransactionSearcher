@@ -1,4 +1,3 @@
-import { Document } from "mongoose";
 
 interface IService<T> {
     all(): Promise<T[]>

@@ -14,7 +14,7 @@ app.use(express.json())
 app.use('/transaction', userRoutes)
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.send('This is working')
+  res.send('This is working')
 })
 
 
@@ -30,5 +30,5 @@ app.use('*', notFoundHandler)
 app.use(errorHandler)
 
 app.listen(3000, () => {
-    console.log(`Listening on port 3000`);
+  console.log('Listening on port 3000');
 })
